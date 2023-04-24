@@ -1,1 +1,27 @@
-<p>pantalla-examen works!</p>
+<p-toast></p-toast>
+<app-loading [visible]="loading"></app-loading>
+<div class="card">
+  <div class="flex justify-content-center">
+    <p-panel header="{{ title }}">
+      <p-table [value]="pokemons" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">URL</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pokemon>
+          <tr>
+            <td>{{pokemon.name}}</td>
+            <td>{{pokemon.url}}</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-center">
+            <p-button (click)="prevPage()" class="mr-3" label="<< previous"></p-button><p-button (click)="nextPage()" class="ml-3" label="next >>"></p-button>
+          </div>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+</div>
